@@ -1,5 +1,3 @@
-#include <limits.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,36 +7,80 @@
  */
 int main(void)
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+	int len;
+	int len2;
+    int len3, len5;
+    int len4, len6;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+
+	_printf("Length:[%d, %i]\n", len, len);
+	printf("Length:[%d, %i]\n", len2, len2);
+
+	_printf("%s with a null string: \n", "23");
+	printf("%s with a null string: \n", "23");
+
+	_printf("Character:[%c]\n", 'H');
+	printf("Character:[%c]\n", 'H');
+
+	_printf("Large Character: %c\n", 255);
+	printf("Large Character: %c\n", 255);
+
+	_printf("String:[%s]\n", "I am a string !");
+	printf("String:[%s]\n", "I am a string !");
+
+	_printf("Empty String: %s\n", "");
+	printf("Empty String: %s\n", "");
+
+	_printf("String with Spaces: %s\n", "Hello World");
+	printf("String with Spaces: %s\n", "Hello World");
+    
+    _printf("%!\n");
+    printf("%!\n");
+
+	_printf("Zero Integer: %d\n", 0);
+	printf("Zero Integer: %d\n", 0);
+
+	_printf("Multiple %% in a row: %% %c %%\n", 'X');
+	printf("after custom print\n");
+	printf("Multiple %% in a row: %% %c %%\n", 'X');
+
+	_printf("Multiple Percent Signs: %%%% %%%% %%%% %%%%\n");
+	printf("Multiple Percent Signs: %%%% %%%% %%%% %%%%\n");
+
+	_printf("Unordered Specifiers: %d %s %c\n", 42, "Order", 'A');
+	printf("Unordered Specifiers: %d %s %c\n", 42, "Order", 'A');
+
+	_printf("Combination: %s %d %c %% %i\n", "Order", 42, 'X', -123);
+	printf("Combination: %s %d %c %% %i\n", "Order", 42, 'X', -123);
+
+	len = _printf("Percent:[%%]\n");
+	len2 = printf("Percent:[%%]\n");
+    
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    return (0);
+
+	_printf("Negative:[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
+    
+    len3 = _printf("%c", 'S');
+	printf("%d\n", len3);
+	len4 = printf("%c", 'S');
+	printf("%d\n", len4);
+
+
+	len5 = _printf("%");
+	_printf("%d\n", len5);
+	_printf("Lawson\n");
+	_printf("%%\n");
+	printf("\n");
+	len6 = printf("%");
+	printf("%d\n", len6);
+	printf("Noblet\n");
+	printf("%%\n");
+
+	_printf("Unknown\n");
+	_printf("Unknown:[%r]\n");
+	return (0);
 }
