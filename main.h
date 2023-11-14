@@ -1,5 +1,5 @@
-#ifndef _MAHMOUD_H
-#define _MAHMOUD_H
+#ifndef _MAIN_H
+#define _MAIN_H
 
 /******INCLUDES******/
 #include <stdio.h>
@@ -47,8 +47,8 @@ typedef struct parameters
 	unsigned int flag_space	: 1;
 	unsigned int flag_zero	: 1;
 
-	unsigned int width	: 1;
-	unsigned int percision	: 1;
+	unsigned int width;
+	unsigned int percision;
 
 	unsigned int modifier_l	: 1;
 	unsigned int modifier_h	: 1;
