@@ -4,7 +4,7 @@
  * _puts - a function that prints a given string
  * @str: the string given
  *
- * return: number of bytes printed
+ * Return: number of bytes printed
  */
 
 int _puts(char *str)
@@ -24,7 +24,7 @@ int _puts(char *str)
  *
  * @c: the ascii code of the given char
  *
- * return: number of bytes printed
+ * Return: number of bytes printed
  */
 
 int _putchar(int c)

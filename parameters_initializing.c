@@ -2,7 +2,7 @@
 
 /**
  * init_para - a function to intialize the parameters list
- * 
+ *
  * @para: the parameters list pointer
  * @ap: the variable list
  *
@@ -18,7 +18,7 @@ void init_para(para_list *para, va_list ap)
 	para->flag_hash = 0;
 	para->flag_zero = 0;
 	para->width = 0;
-	para->percision = UNIT_MAX;
+	para->percision = UINT_MAX;
 	para->modifier_l = 0;
 	para->modifier_h = 0;
 
