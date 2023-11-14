@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 /**if the input = '%' --> invalid***/
-	if (!format || (format[0] == '%' && !format[2]))
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 /**if the input = '% ' --> invalid***/
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
