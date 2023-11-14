@@ -11,28 +11,26 @@
  */
 char *get_percision(char *p, para_list *para, va_list ap)
 {
-        int d = 0;
+	int d = 0;
 
-        if (*p != '.')
-                return (p);
-
-        p++;
-        if (*p == '*')
-        {
-                d = va_arg(ap, int);
-                p++;
-        }
-        else
-        {
-                while (is_digit(*p))
-                {
-                        d = d * 10 + (*p - '0');
-                        p++;
-                }
-        }
-        para->percision = d;
-
-        return (p);
+	if (*p != '.')
+		return (p);
+	p++;
+	if (*p == '*')
+	{
+		d = va_arg(ap, int);
+		p++;
+	}
+	else
+	{
+		while (is_digit(*p))
+		{
+			d = d * 10 + (*p - '0');
+			p++;
+		}
+	}
+	para->percision = d;
+	return (p);
 }
 
 

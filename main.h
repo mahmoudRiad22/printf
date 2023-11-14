@@ -67,6 +67,10 @@ typedef struct specifier
 	int (*f)(va_list, para_list *);
 } specifier_list;
 
+/******FILE: _printf.c*********/
+int _printf(const char *format, ...);
+/*DONE*/
+
 /******FILE: parameters_initializing.c****/
 void init_para(para_list *para, va_list ap);
 /*DONE*/
@@ -88,5 +92,39 @@ int call_print_function(char *s, va_list ap, para_list *para);
 char *get_percision(char *p, para_list *para, va_list ap);
 /*DONE*/
 
+/*******FILE: special_print.c******/
+int print_rot13(va_list ap, para_list *para);
+int print_from_to(char *start, char *stop, char *skip);
+int print_reverse(va_list ap, para_list *para);
+/*DONE*/
+
+/*******FILE: number_functions.c****/
+char *convert_to_base(long int number, int base, int flags, para_list *para);
+int print_unsigned_num(va_list ap, para_list *para);
+int print_address(va_list ap, para_list *para);
+/*DONE*/
+
+/*******FILE: print_number_functions.c****/
+int print_number(char *str, para_list *para);
+int is_digit(int c);
+int str_len(char *s);
+int print_number_RS(char *str, para_list *para);
+int print_number_LS(char *str, para_list *para);
+/*DONE*/
+
+/*******FILE: print_HBO.c*******/
+int print_binary(va_list ap, para_list *para);
+int print_octal(va_list ap, para_list *para);
+int print_hex(va_list ap, para_list *para);
+int print_HEX(va_list ap, para_list *para);
+/*DONE*/
+
+/*******FILE: print_function.c******/
+int print_int(va_list ap, para_list *para);
+int print_char(va_list ap, para_list *para);
+int print_percent(va_list ap, para_list *para);
+int print_custom_S(va_list ap, para_list *para);
+int print_string(va_list ap, para_list *para);
+/*DONE*/
 
 #endif

@@ -37,9 +37,9 @@ int _printf(const char *format, ...)
 		p = get_percision(p, &parameters, ap);
 		if (get_modifier(p, &parameters))
 			p++;
-	if (!get_specifier)
+	if (!get_specifier(p))
 	{
-	sum += printf_from_to(start, p,
+	sum += print_from_to(start, p,
 		parameters.modifier_l || parameters.modifier_h ? p - 1 : 0);
 	}
 	else

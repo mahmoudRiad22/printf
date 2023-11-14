@@ -94,7 +94,7 @@ int (*get_specifier(char *s))(va_list ap, para_list *para)
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
-		{"s", peint_string},
+		{"s", print_string},
 		{"%", print_percent},
 		{"b", print_binary},
 		{"o", print_octal},
@@ -113,7 +113,7 @@ int (*get_specifier(char *s))(va_list ap, para_list *para)
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
-			return (specifier[i].f);
+			return (specifiers[i].f);
 		i++;
 	}
 	return (NULL);
