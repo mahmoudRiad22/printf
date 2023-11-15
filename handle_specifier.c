@@ -29,8 +29,6 @@ int get_flag(char *s, para_list *para)
 	case '0':
 		i = para->flag_zero = 1;
 		break;
-	default:
-		break;
 	}
 	return (i);
 }
