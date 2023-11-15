@@ -37,7 +37,7 @@ char *convert_to_base(long int number, int base, int flags, para_list *para)
 	do {
 		p--;
 		*p = array[n % base];
-		n = n / base;
+		n /= base;
 	} while (n != 0);
 
 	if (sign)
@@ -88,7 +88,7 @@ int print_address(va_list ap, para_list *para)
 	unsigned long int n = va_arg(ap, unsigned long int);
 
 	if (!n)
-		return (_puts("Error:101"));
+		return (_puts("(nil)"));
 
 	str = convert_to_base(n, 16, UNSIGNED | LOWERCASE, para);
 	str--;

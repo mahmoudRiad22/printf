@@ -16,7 +16,7 @@ int print_string(va_list ap, para_list *para)
 	unsigned int pad = 0, sum = 0, i = 0, j;
 
 	(void)para;
-	if (!str)
+	if ((int)(!str) == 1)
 		str = NULL_STRING;
 	j = pad = str_len(str);
 	if (para->percision < pad)
@@ -75,11 +75,11 @@ int print_custom_S(va_list ap, para_list *para)
 		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
 			sum += _putchar('\\');
-			sum += +putchar('x');
+			sum += _putchar('x');
 			hex = convert_to_base(*str, 16, 0, para);
 
 			if (!hex[1])
-				sum += +putchar('0');
+				sum += _putchar('0');
 
 			sum += _puts(hex);
 		}

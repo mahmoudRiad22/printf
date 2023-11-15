@@ -12,7 +12,27 @@ int get_flag(char *s, para_list *para)
 {
 	int i = 0;	/*flag detector*/
 
-	if (*s == '+')
+	switch (*s)
+	{
+	case '+':
+		i = para->flag_plus = 1;
+		break;
+	case '-':
+		i = para->flag_minus = 1;
+		break;
+	case ' ':
+		i = para->flag_space = 1;
+		break;
+	case '#':
+		i = para->flag_hash = 1;
+		break;
+	case '0':
+		i = para->flag_zero = 1;
+		break;
+	default:
+		break;
+	}
+	/*if (*s == '+')
 		i = para->flag_plus = 1;
 	else if (*s == '-')
 		i = para->flag_minus = 1;
@@ -21,8 +41,7 @@ int get_flag(char *s, para_list *para)
 	else if (*s == '#')
 		i = para->flag_hash = 1;
 	else if (*s == '0')
-		i = para->flag_zero = 1;
-
+		i = para->flag_zero = 1;*/
 	return (i);
 }
 
@@ -39,11 +58,21 @@ int get_modifier(char *s, para_list *para)
 {
 	int i = 0;
 
+	switch (*s)
+	{
+		case 'h':
+			i = para->modifier_h = 1;
+			break;
+		case 'l':
+			i = para->modifier_l = 1;
+			break;
+	}
+	/*
 	if (*s == 'h')
 		i = para->modifier_h = 1;
 	else if (*s == 'l')
 		i = para->modifier_l = 1;
-
+	*/
 	return (i);
 }
 
@@ -113,7 +142,9 @@ int (*get_specifier(char *s))(va_list ap, para_list *para)
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
-			return (specifiers[i].f);
+			{
+				return (specifiers[i].f);
+			}
 		i++;
 	}
 	return (NULL);

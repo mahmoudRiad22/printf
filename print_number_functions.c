@@ -70,7 +70,7 @@ int print_number(char *str, para_list *para)
 		*str = '-';
 	}
 
-	if (para->flag_minus)
+	if (!para->flag_minus)
 		return (print_number_RS(str, para));
 	else
 		return (print_number_LS(str, para));
@@ -150,7 +150,7 @@ int print_number_LS(char *str, para_list *para)
 		negative1 = 0;
 	if (para->flag_plus && !negative2 && !para->unsign)
 		n += _putchar('+'), len++;
-	else if (!negative2 && para->flag_plus && !para->unsign)
+	else if (!negative2 && para->flag_space && !para->unsign)
 		n += _putchar(' '), len++;
 	n += _puts(str);
 	while (len < para->width)

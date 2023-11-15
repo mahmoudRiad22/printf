@@ -63,8 +63,8 @@ int print_rot13(va_list ap, para_list *para)
 	int i, index, count = 0;
 char array[] = "NOPQRSTUVWXYZABCDEFGHIJKLM	nopqrstuvwxyzabcdefghijklm";
 	char *a = va_arg(ap, char *);
-
 	(void)para;
+	
 	i = 0;
 	index = 0;
 	while (a[i])
