@@ -126,9 +126,9 @@ int (*get_specifier(char *s))(va_list ap, para_list *para)
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
-			{
-				return (specifiers[i].f);
-			}
+		{
+			return (specifiers[i].f);
+		}
 		i++;
 	}
 	return (NULL);
